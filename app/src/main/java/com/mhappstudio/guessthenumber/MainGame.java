@@ -14,26 +14,27 @@ import android.widget.Toast;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
-import com.startapp.android.publish.StartAppAd;
-import com.startapp.android.publish.StartAppSDK;
 
 import java.util.Random;
 
 public class MainGame extends AppCompatActivity {
 
-    private StartAppAd startAppAd = new StartAppAd(this);
+    InterstitialAd mInterstitialAd = new InterstitialAd(this);
 
     String inputFieldView1 = "";
     int randomNum;
     int guessCounter = 1;
     boolean highScoreGood = false;
-    int max, min;
+    int max, min, guess;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        StartAppSDK.init(this, "204192133", true);
         setContentView(R.layout.activity_main_game);
+
+        mInterstitialAd.setAdUnitId("ca-app-pub-7283483668136736/3475367203");
+
+        requestNewInterstitial();
 
         //Log.i("TAG", "It worked");
 
@@ -71,6 +72,14 @@ public class MainGame extends AppCompatActivity {
         findViewById(R.id.key_pad_9).setOnClickListener(keypad9);
         findViewById(R.id.key_pad_clear).setOnClickListener(keypadclear);
         findViewById(R.id.key_pad_enter).setOnClickListener(keypadenter);
+    }
+
+    private void requestNewInterstitial() {
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice("ACC147BB43B7A9B94CF4AF24C53CD80D")
+                .build();
+
+        mInterstitialAd.loadAd(adRequest);
     }
 
     //Keypad Click Listeners===========[[
@@ -180,10 +189,10 @@ public class MainGame extends AppCompatActivity {
     }
 
     private void enter(){
-        int guess = Integer.parseInt(inputFieldView1);
+        guess = Integer.parseInt(inputFieldView1);
 
         if (guess == randomNum){
-            continueGame(guess);
+            displayAd();
         }else if (guess > randomNum){
             indicatorDisplay("Too High");
             ++guessCounter;
@@ -230,7 +239,21 @@ public class MainGame extends AppCompatActivity {
         }
     }
 
-    private void continueGame(int guess){
+    private void displayAd(){
+        if (mInterstitialAd.isLoaded()) {
+            mInterstitialAd.show();
+        }
+
+        mInterstitialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdClosed() {
+                continueGame();
+            }
+        });
+    }
+
+    private void continueGame(){
+
         Intent gameover = new Intent(this, GameOver.class);
         if (highScoreGood){
             keepHighScore(guess);
@@ -239,7 +262,5 @@ public class MainGame extends AppCompatActivity {
         gameover.putExtra("max", max);
         gameover.putExtra("min", min);
         startActivity(gameover);
-        startAppAd.showAd();
-        startAppAd.loadAd();
     }
 }
