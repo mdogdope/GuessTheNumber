@@ -19,7 +19,8 @@
 
         <activity
             android:name=".SplashScreen"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -29,14 +30,19 @@
 
         <activity
             android:name=".MainMenu"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity android:name=".QuickPlayMenu" />
-        <activity android:name=".CustomGameMenu" />
-        <activity android:name=".SettingsMenu" />
-        <activity android:name=".HighScoreMenu" />
-        <activity android:name=".MainGame" />
-        <activity android:name=".GameOver"/>
+            android:screenOrientation="portrait"/>
+        <activity android:name=".QuickPlayMenu"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".CustomGameMenu"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".SettingsMenu"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".HighScoreMenu"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".MainGame"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".GameOver"
+            android:screenOrientation="portrait"/>
 
         <activity android:name="com.startapp.android.publish.list3d.List3DActivity"
             android:theme="@android:style/Theme" />

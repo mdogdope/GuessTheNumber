@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,6 +36,9 @@ public class MainGame extends AppCompatActivity {
         setContentView(R.layout.activity_main_game);
 
         //Log.i("TAG", "It worked");
+
+        ImageButton btnSubmit = (ImageButton) findViewById(R.id.key_pad_enter);
+        btnSubmit.setEnabled(false);
 
         TextView guessnumTextView = (TextView)findViewById(R.id.guess_counter);
         guessnumTextView.setText("Guess #" + guessCounter);
@@ -156,6 +160,9 @@ public class MainGame extends AppCompatActivity {
     //Keypad Click Listeners===========]]
 
     private void keypad(int num){
+        ImageButton btnSubmit = (ImageButton) findViewById(R.id.key_pad_enter);
+        btnSubmit.setEnabled(true);
+
         String strNum = String.valueOf(num);
                 TextView text1 = (TextView)findViewById(R.id.current_guess);
                 inputFieldView1 = inputFieldView1 + strNum;
@@ -164,9 +171,12 @@ public class MainGame extends AppCompatActivity {
     }
 
     private void clearText(){
-                TextView text2 = (TextView)findViewById(R.id.current_guess);
-                text2.setText("");
-                inputFieldView1 = "";
+        TextView text2 = (TextView)findViewById(R.id.current_guess);
+        text2.setText("");
+        inputFieldView1 = "";
+
+        ImageButton btnSubmit = (ImageButton) findViewById(R.id.key_pad_enter);
+        btnSubmit.setEnabled(false);
     }
 
     private void enter(){
@@ -183,6 +193,10 @@ public class MainGame extends AppCompatActivity {
             ++guessCounter;
             guessCounterDisplay();
         }
+
+        ImageButton btnSubmit = (ImageButton) findViewById(R.id.key_pad_enter);
+        btnSubmit.setEnabled(false);
+
         clearText();
     }
 

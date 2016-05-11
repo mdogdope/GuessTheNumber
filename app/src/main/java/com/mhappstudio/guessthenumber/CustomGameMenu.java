@@ -5,10 +5,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class CustomGameMenu extends AppCompatActivity {
+
+    boolean text1check = false, text2check = false;
 
     int selectedBox = 0;
     String inputFieldView1 = "";
@@ -169,11 +172,15 @@ public class CustomGameMenu extends AppCompatActivity {
                 TextView text1 = (TextView)findViewById(R.id.minimum_edit_text);
                 inputFieldView1 = inputFieldView1 + strNum;
                 text1.setText(inputFieldView1);
+
+                text1check = true;
                  break;
             case 2:
                 TextView text2 = (TextView)findViewById(R.id.maximum_edit_text);
                 inputFieldView2 = inputFieldView2 + strNum;
                 text2.setText(inputFieldView2);
+
+                text2check = true;
                 break;
         }
     }
@@ -187,23 +194,31 @@ public class CustomGameMenu extends AppCompatActivity {
                 TextView text1 = (TextView)findViewById(R.id.minimum_edit_text);
                 text1.setText("");
                 inputFieldView1 = "";
+
+                text1check = false;
                 break;
             case 2:
                 TextView text2 = (TextView)findViewById(R.id.maximum_edit_text);
                 text2.setText("");
                 inputFieldView2 = "";
+
+                text2check = false;
                 break;
         }
     }
 
     private void enter(){
-        int min = Integer.parseInt(inputFieldView1);
-        int max = Integer.parseInt(inputFieldView2);
 
-        Intent startGame = new Intent(this, MainGame.class);
-        startGame.putExtra("maximum", max);
-        startGame.putExtra("minimum", min);
-        startActivity(startGame);
+
+        if(text1check && text2check){
+            int min = Integer.parseInt(inputFieldView1);
+            int max = Integer.parseInt(inputFieldView2);
+
+            Intent startGame = new Intent(this, MainGame.class);
+            startGame.putExtra("maximum", max);
+            startGame.putExtra("minimum", min);
+            startActivity(startGame);
+        }
     }
     //Keypad function========]]
 }

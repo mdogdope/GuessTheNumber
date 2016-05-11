@@ -86,6 +86,7 @@
         <Button
             android:id="@+id/key_pad_1"
             android:text="1"
+            android:textColor="@color/black"
 
             android:layout_width="64dp"
             android:layout_height="64dp"
@@ -97,6 +98,7 @@
         <Button
             android:id="@+id/key_pad_2"
             android:text="2"
+            android:textColor="@color/black"
 
             android:layout_width="64dp"
             android:layout_height="64dp"
@@ -109,6 +111,7 @@
         <Button
             android:id="@+id/key_pad_3"
             android:text="3"
+            android:textColor="@color/black"
 
             android:layout_width="64dp"
             android:layout_height="64dp"
@@ -120,6 +123,7 @@
         <Button
             android:id="@+id/key_pad_4"
             android:text="4"
+            android:textColor="@color/black"
 
             android:layout_width="64dp"
             android:layout_height="64dp"
@@ -131,6 +135,7 @@
         <Button
             android:id="@+id/key_pad_5"
             android:text="5"
+            android:textColor="@color/black"
 
             android:layout_width="64dp"
             android:layout_height="64dp"
@@ -142,6 +147,7 @@
         <Button
             android:id="@+id/key_pad_6"
             android:text="6"
+            android:textColor="@color/black"
 
             android:layout_width="64dp"
             android:layout_height="64dp"
@@ -153,6 +159,7 @@
         <Button
             android:id="@+id/key_pad_7"
             android:text="7"
+            android:textColor="@color/black"
 
             android:layout_width="64dp"
             android:layout_height="64dp"
@@ -164,6 +171,7 @@
         <Button
             android:id="@+id/key_pad_8"
             android:text="8"
+            android:textColor="@color/black"
 
             android:layout_width="64dp"
             android:layout_height="64dp"
@@ -175,6 +183,7 @@
         <Button
             android:id="@+id/key_pad_9"
             android:text="9"
+            android:textColor="@color/black"
 
             android:layout_width="64dp"
             android:layout_height="64dp"
@@ -187,6 +196,7 @@
         <Button
             android:id="@+id/key_pad_0"
             android:text="0"
+            android:textColor="@color/black"
 
             android:layout_width="64dp"
             android:layout_height="64dp"
@@ -199,6 +209,7 @@
             android:id="@+id/key_pad_clear"
             android:text="del"
             android:textSize="12sp"
+            android:textColor="@color/black"
 
             android:layout_width="64dp"
             android:layout_height="64dp"
