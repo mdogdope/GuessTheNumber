@@ -8,9 +8,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import com.startapp.android.publish.StartAppAd;
-import com.startapp.android.publish.splash.SplashConfig;
-
 public class MainMenu extends AppCompatActivity implements View.OnClickListener{
 
 
@@ -19,11 +16,6 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
-
-        //Splash screen=====[[
-
-
-        //Splash screen=====]]
 
         LinearLayout QuickPlayBtn = (LinearLayout)findViewById(R.id.quick_play_btn);
         assert QuickPlayBtn != null;
