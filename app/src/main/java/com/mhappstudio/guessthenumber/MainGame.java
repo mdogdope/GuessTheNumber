@@ -76,7 +76,7 @@ public class MainGame extends AppCompatActivity {
 
     private void requestNewInterstitial() {
         AdRequest adRequest = new AdRequest.Builder()
-                //.addTestDevice("ACC147BB43B7A9B94CF4AF24C53CD80D")
+                .addTestDevice("ACC147BB43B7A9B94CF4AF24C53CD80D")
                 .build();
 
         mInterstitialAd.loadAd(adRequest);
@@ -222,26 +222,61 @@ public class MainGame extends AppCompatActivity {
         SharedPreferences highScorePrefs = this.getSharedPreferences("HighScore", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = highScorePrefs.edit();
         if(max == 10){
-            String maxStr = String.valueOf(max),
-                    scoreStr = String.valueOf(score);
+            if(highScorePrefs.contains("10")) {
+                String highScore = highScorePrefs.getString("10", "");
+                int highScoreInt = Integer.parseInt(highScore);
+                if(highScoreInt > score) {
+                    String maxStr = String.valueOf(max),
+                            scoreStr = String.valueOf(score);
 
-            editor.putString(maxStr, scoreStr).commit();
+                    editor.putString(maxStr, scoreStr).commit();
+                }
+            }else{
+                String maxStr = String.valueOf(max),
+                        scoreStr = String.valueOf(score);
+
+                editor.putString(maxStr, scoreStr).commit();
+            }
         }else if(max == 100){
-            String maxStr = String.valueOf(max),
-                    scoreStr = String.valueOf(score);
+            if(highScorePrefs.contains("100")) {
+                String highScore = highScorePrefs.getString("100", "");
+                int highScoreInt = Integer.parseInt(highScore);
+                if(highScoreInt > score) {
+                    String maxStr = String.valueOf(max),
+                            scoreStr = String.valueOf(score);
 
-            editor.putString(maxStr, scoreStr).commit();
+                    editor.putString(maxStr, scoreStr).commit();
+                }
+            }else {
+                String maxStr = String.valueOf(max),
+                        scoreStr = String.valueOf(score);
+
+                editor.putString(maxStr, scoreStr).commit();
+            }
         }else if(max == 1000){
-            String maxStr = String.valueOf(max),
-                    scoreStr = String.valueOf(score);
+            if(highScorePrefs.contains("1000")) {
+                String highScore = highScorePrefs.getString("1000", "");
+                int highScoreInt = Integer.parseInt(highScore);
+                if(highScoreInt > score) {
+                    String maxStr = String.valueOf(max),
+                            scoreStr = String.valueOf(score);
 
-            editor.putString(maxStr, scoreStr).commit();
+                    editor.putString(maxStr, scoreStr).commit();
+                }
+            }else{
+                String maxStr = String.valueOf(max),
+                        scoreStr = String.valueOf(score);
+
+                editor.putString(maxStr, scoreStr).commit();
+            }
         }
     }
 
     private void displayAd(){
         if (mInterstitialAd.isLoaded()) {
             mInterstitialAd.show();
+        }else{
+            continueGame();
         }
 
         mInterstitialAd.setAdListener(new AdListener() {
@@ -256,7 +291,7 @@ public class MainGame extends AppCompatActivity {
 
         Intent gameover = new Intent(this, GameOver.class);
         if (highScoreGood){
-            keepHighScore(guess);
+            keepHighScore(guessCounter);
         }
         gameover.putExtra("score", guessCounter);
         gameover.putExtra("max", max);

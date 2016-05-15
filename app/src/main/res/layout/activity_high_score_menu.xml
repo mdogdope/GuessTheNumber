@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,6 +7,82 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.mhappstudio.guessthenumber.HighScoreMenu">
+    android:orientation="vertical"
+    tools:context="com.mhappstudio.guessthenumber.HighScoreMenu"
+    android:background="@color/grey">
 
-</RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/text_field_style">
+
+        <TextView
+            android:text="1 - 10: "
+            android:textColor="@color/black"
+            android:textSize="32dp"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/highscore_1_to_10"
+            android:text="3"
+            android:textColor="@color/black"
+            android:textSize="32dp"
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/text_field_style">
+
+        <TextView
+            android:text="1 - 100: "
+            android:textColor="@color/black"
+            android:textSize="32dp"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/highscore_1_to_100"
+            android:text="3"
+            android:textColor="@color/black"
+            android:textSize="32dp"
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/text_field_style">
+
+        <TextView
+            android:text="1 - 1000: "
+            android:textColor="@color/black"
+            android:textSize="32dp"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/highscore_1_to_1000"
+            android:text="3"
+            android:textColor="@color/black"
+            android:textSize="32dp"
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+    </LinearLayout>
+</LinearLayout>
