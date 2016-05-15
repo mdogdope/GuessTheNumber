@@ -32,7 +32,7 @@ public class MainGame extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_game);
 
-        mInterstitialAd.setAdUnitId("ca-app-pub-7283483668136736/3475367203");
+        mInterstitialAd.setAdUnitId("ca-app-pub-7283483668136736/9891514001");
 
         requestNewInterstitial();
 
@@ -76,7 +76,7 @@ public class MainGame extends AppCompatActivity {
 
     private void requestNewInterstitial() {
         AdRequest adRequest = new AdRequest.Builder()
-                .addTestDevice("ACC147BB43B7A9B94CF4AF24C53CD80D")
+                //.addTestDevice("ACC147BB43B7A9B94CF4AF24C53CD80D")
                 .build();
 
         mInterstitialAd.loadAd(adRequest);
